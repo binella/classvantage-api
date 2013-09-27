@@ -1,9 +1,9 @@
 class ApplicationController < ActionController::Base #API
   before_filter :cors_set_access_control_headers
   
-  #doorkeeper_for :all, :except => [:options]
+  doorkeeper_for :all, :except => [:options]
   
-  #respond_to :json
+  respond_to :json
 
   def options 
     render :text => '', :content_type => 'text/plain'
