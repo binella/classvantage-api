@@ -42,7 +42,7 @@ module V1
     end
     
     def allowed_params
-      [:title, :description]
+      [:title, :description, :unit_id]
     end
     
   end

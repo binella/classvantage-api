@@ -11,7 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130926145226) do
+ActiveRecord::Schema.define(version: 20131001205359) do
+
+  create_table "curriculums", force: true do |t|
+    t.string   "title"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "gradebooks", force: true do |t|
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "oauth_access_grants", force: true do |t|
     t.integer  "resource_owner_id",              null: false
@@ -52,9 +64,54 @@ ActiveRecord::Schema.define(version: 20130926145226) do
 
   add_index "oauth_applications", ["uid"], name: "index_oauth_applications_on_uid", unique: true, using: :btree
 
+  create_table "pages", force: true do |t|
+    t.string   "title"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "gradebook_id"
+  end
+
+  create_table "pages_students", id: false, force: true do |t|
+    t.integer "page_id",    null: false
+    t.integer "student_id", null: false
+  end
+
+  add_index "pages_students", ["page_id"], name: "index_pages_students_on_page_id", using: :btree
+  add_index "pages_students", ["student_id"], name: "index_pages_students_on_student_id", using: :btree
+
   create_table "rubrics", force: true do |t|
     t.string   "title"
     t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "unit_id"
+  end
+
+  create_table "strands", force: true do |t|
+    t.string   "title"
+    t.integer  "subject_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "students", force: true do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "subjects", force: true do |t|
+    t.string   "title"
+    t.integer  "curriculum_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "units", force: true do |t|
+    t.string   "title"
+    t.integer  "grade"
+    t.integer  "strand_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

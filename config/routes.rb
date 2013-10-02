@@ -1,4 +1,5 @@
 Classvantage::Application.routes.draw do
+  # CORS
   match '/*path' => 'application#options', :via => :options
   
   use_doorkeeper
@@ -10,6 +11,12 @@ Classvantage::Application.routes.draw do
     resource :me, :controller => :me
     
     resources :rubrics
+    
+    resources :units, :only => [:index]
+    
+    resource :gradebook, :controller => :gradebooks
+    
+    #resources :gradebooks
     
   end
   
