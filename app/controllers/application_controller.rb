@@ -9,6 +9,17 @@ class ApplicationController < ActionController::Base #API
     render :text => '', :content_type => 'text/plain'
   end
 
+
+  # SHOULD THESE METHODS BE PRIVATE?
+  
+  def self.model_class
+    self.name.sub(/Controller/, '').sub(/.*::/, '').singularize.constantize
+  end
+  
+  def permitted_params
+    params.permit(self.class.model_class.to_s.underscore.to_sym => allowed_params)
+  end
+
   private
 
   # Is this needed?

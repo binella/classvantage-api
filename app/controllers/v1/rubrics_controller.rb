@@ -33,13 +33,6 @@ module V1
       
     end
     
-    def self.model_class
-      self.name.sub(/Controller/, '').sub(/.*::/, '').singularize.constantize
-    end
-    
-    def permitted_params
-      params.permit(self.class.model_class.to_s.underscore.to_sym => allowed_params)
-    end
     
     def allowed_params
       [:title, :description, :unit_id]
