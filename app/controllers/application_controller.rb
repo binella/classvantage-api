@@ -19,6 +19,10 @@ class ApplicationController < ActionController::Base #API
   def permitted_params
     params.permit(self.class.model_class.to_s.underscore.to_sym => allowed_params)
   end
+  
+  def allowed_params
+    # To be overidden by subclasses
+  end
 
   private
 

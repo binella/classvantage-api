@@ -10,8 +10,8 @@ module V1
     end
     
     def create
-      @page = current_user.default_gradebook.pages.build(params[:page])
-      
+      @page = current_user.default_gradebook.pages.build(permitted_params[:page])
+
       if @page.save
         render 'show'
       else
