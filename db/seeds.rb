@@ -26,7 +26,7 @@ drama  = Strand.create({ title: "Drama",       subject: arts })
 music  = Strand.create({ title: "Music",       subject: arts })
 visual = Strand.create({ title: "Visual Arts", subject: arts })
 
-1..8 do |n|
+(1..8).each do |n|
   Unit.create([
     { strand: dance, grade: n },
     { strand: dance, grade: n },
@@ -44,7 +44,7 @@ speaking  = Strand.create({ title: "Speaking",  subject: french })
 reading   = Strand.create({ title: "Reading",   subject: french })
 writing   = Strand.create({ title: "Writing",   subject: french })
 
-4..8 do |n|
+(4..8).each do |n|
   Unit.create([
     { title: "Listening (Core)", strand: listening, grade: n },
     { title: "Speaking (Core)",  strand: listening, grade: n },
@@ -53,7 +53,7 @@ writing   = Strand.create({ title: "Writing",   subject: french })
   ])
 end
 
-4..8 do |n|
+(4..8).each do |n|
   Unit.create([
     { title: "Listening (Extended)", strand: listening, grade: n },
     { title: "Speaking (Extended)",  strand: listening, grade: n },
@@ -62,7 +62,7 @@ end
   ])
 end
 
-1..8 do |n|
+(1..8).each do |n|
   Unit.create([
     { title: "Listening (Immersion)", strand: listening, grade: n },
     { title: "Speaking (Immersion)",  strand: listening, grade: n },
@@ -80,7 +80,7 @@ active   = Strand.create({ title: "Active Living",       subject: health })
 movement = Strand.create({ title: "Movement Competence", subject: health })
 healthy  = Strand.create({ title: "Healthy Living",      subject: health })
 
-1..8 do |n|
+(1..8).each do |n|
   Unit.create([
     { strand: living,   grade: n },
     { strand: active,   grade: n },
@@ -98,7 +98,7 @@ reading = Strand.create({ title: "Reading",            subject: language })
 writing = Strand.create({ title: "Writing",            subject: language })
 media   = Strand.create({ title: "Media Literacy",     subject: language })
 
-1..8 do |n|
+(1..8).each do |n|
   Unit.create([
     { strand: oral,    grade: n },
     { strand: reading, grade: n },
@@ -117,7 +117,7 @@ geometry    = Strand.create({ title: "Geometry and Spatial Sense",      subject:
 patterning  = Strand.create({ title: "Patterning and Algebra",          subject: math })
 data        = Strand.create({ title: "Data Management and Probability", subject: math })
 
-1..8 do |n|
+(1..8).each do |n|
   Unit.create([
     { strand: number,      grade: n },
     { strand: measurement, grade: n },
@@ -135,7 +135,7 @@ oral    = Strand.create({ title: "Oral Communication", subject: native })
 reading = Strand.create({ title: "Reading",            subject: native })
 writing = Strand.create({ title: "Writing",            subject: native })
 
-1..8 do |n|
+(1..8).each do |n|
   Unit.create([
     { strand: oral,    grade: n },
     { strand: reading, grade: n },
