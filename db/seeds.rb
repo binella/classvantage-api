@@ -29,9 +29,9 @@ visual = Strand.create({ title: "Visual Arts", subject: arts })
 (1..8).each do |n|
   Unit.create([
     { strand: dance, grade: n },
-    { strand: dance, grade: n },
-    { strand: dance, grade: n },
-    { strand: dance, grade: n }
+    { strand: drama, grade: n },
+    { strand: music, grade: n },
+    { strand: visual, grade: n }
   ])
 end
 
@@ -48,27 +48,27 @@ writing   = Strand.create({ title: "Writing",   subject: french })
 (4..8).each do |n|
   Unit.create([
     { title: "Listening (Core)", strand: listening, grade: n },
-    { title: "Speaking (Core)",  strand: listening, grade: n },
-    { title: "Reading (Core)",   strand: listening, grade: n },
-    { title: "Writing (Core)",   strand: listening, grade: n }
+    { title: "Speaking (Core)",  strand: speaking, grade: n },
+    { title: "Reading (Core)",   strand: reading, grade: n },
+    { title: "Writing (Core)",   strand: writing, grade: n }
   ])
 end
 
 (4..8).each do |n|
   Unit.create([
     { title: "Listening (Extended)", strand: listening, grade: n },
-    { title: "Speaking (Extended)",  strand: listening, grade: n },
-    { title: "Reading (Extended)",   strand: listening, grade: n },
-    { title: "Writing (Extended)",   strand: listening, grade: n }
+    { title: "Speaking (Extended)",  strand: speaking, grade: n },
+    { title: "Reading (Extended)",   strand: reading, grade: n },
+    { title: "Writing (Extended)",   strand: writing, grade: n }
   ])
 end
 
 (1..8).each do |n|
   Unit.create([
     { title: "Listening (Immersion)", strand: listening, grade: n },
-    { title: "Speaking (Immersion)",  strand: listening, grade: n },
-    { title: "Reading (Immersion)",   strand: listening, grade: n },
-    { title: "Writing (Immersion)",   strand: listening, grade: n }
+    { title: "Speaking (Immersion)",  strand: speaking, grade: n },
+    { title: "Reading (Immersion)",   strand: reading, grade: n },
+    { title: "Writing (Immersion)",   strand: writing, grade: n }
   ])
 end
 
