@@ -2,7 +2,7 @@ module V1
   class PagesController < ApplicationController
     
     def index
-      @pages = current_user.default_gradebook.pages
+      @pages = current_user.default_gradebook.pages.order("created_at DESC")
     end
     
     def show
