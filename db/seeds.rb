@@ -35,6 +35,7 @@ visual = Strand.create({ title: "Visual Arts", subject: arts })
   ])
 end
 
+
 #---------------------------------------
 #  French As a Second Language
 #---------------------------------------
@@ -212,13 +213,12 @@ Unit.create({ title: "Canada's Links to the World",                     strand: 
 #---------------------------------------
 #  History and Geography
 #---------------------------------------
-
 history   = Strand.create({ title: "History",   subject: histogeo })
 geography = Strand.create({ title: "Geography", subject: histogeo })
 
 Unit.create({ title: "New France",                        strand: history,   grade: 7 })
 Unit.create({ title: "British North America",             strand: history,   grade: 7 })
-Unit.create({ title: "Conﬂict and Change",                strand: history,   grade: 7 })
+Unit.create({ title: "Conflict and Change",                strand: history,   grade: 7 })
 Unit.create({ title: "Confederation",                     strand: history,   grade: 8 })
 Unit.create({ title: "The Development of Western Canada", strand: history,   grade: 8 })
 Unit.create({ title: "Canada: A Changing Society",        strand: history,   grade: 8 })
