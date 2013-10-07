@@ -3,8 +3,8 @@ class Unit < ActiveRecord::Base
   
   
   scope :with_subject, includes(:strand => :subject)
-  # VERY BAD
-  #def title
-  #  self.title || self.strand.title
-  #end
+  
+  def title
+    self.read_attribute(:title) || self.strand.title
+  end
 end

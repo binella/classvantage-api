@@ -1,6 +1,6 @@
 collection @units
 
-attributes :id, :grade
+attributes :id, :grade, :title
 
 node (:subject_id) { |u| u.strand.subject_id }
 
