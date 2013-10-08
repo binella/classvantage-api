@@ -9,6 +9,9 @@ class ApplicationController < ActionController::Base #API
     render :text => '', :content_type => 'text/plain'
   end
 
+  #rescue_from CanCan::AccessDenied do |exception|
+  #  render :json => {:error => 'Access Denied'}, :status => ?
+  #end
 
   # SHOULD THESE METHODS BE PRIVATE?
   
