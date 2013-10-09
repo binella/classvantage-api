@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131008182008) do
+ActiveRecord::Schema.define(version: 20131009200318) do
 
   create_table "curriculums", force: true do |t|
     t.string   "title"
@@ -95,6 +95,7 @@ ActiveRecord::Schema.define(version: 20131008182008) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "unit_id"
+    t.integer  "page_id"
   end
 
   create_table "strands", force: true do |t|
