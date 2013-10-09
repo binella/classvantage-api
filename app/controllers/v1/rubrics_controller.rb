@@ -12,7 +12,7 @@ module V1
     end
     
     def create
-      @rubric = Rubric.new params[:rubric]
+      @rubric = Rubric.new permitted_params[:rubric]
       
       if @rubric.save
         render 'show'
