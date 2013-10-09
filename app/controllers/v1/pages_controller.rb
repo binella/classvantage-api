@@ -20,8 +20,10 @@ module V1
     end
     
     def update
-      if Page.update(params[:id], permitted_params[:page])
-        render :json => { :success => true }
+      @page = Page.find(params[:id])
+      
+      if @page.update(permitted_params[:page])
+        render 'show'
       else
         render :json => { :error => "Error updating page"}
       end
@@ -29,7 +31,7 @@ module V1
     
     
     def allowed_params
-      [:title, :grade, :subject_id]
+      [:title, :grade, :subject_id, :students_attributes => [:full_name]]
     end
     
   end

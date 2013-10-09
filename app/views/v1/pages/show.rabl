@@ -6,7 +6,7 @@ child :subject do
 end
 
 child :students do
-  attributes :id, :full_name
+  attributes :id, :first_name, :last_name, :full_name
 end
 
 child :rubrics do
