@@ -6,6 +6,13 @@ class User < ActiveRecord::Base
          
   has_many :gradebooks
   
+  after_create :create_gradebook
+
+  
+  def create_gradebook
+    self.gradebooks.create
+  end
+    
   def default_gradebook
     gradebooks.first
   end

@@ -1,6 +1,9 @@
 class Student < ActiveRecord::Base
   has_and_belongs_to_many :pages
   
+  default_scope order('last_name ASC')
+  scope :from_page, lambda { |value| joins(:pages).where(:pages => {:id => (value.is_a?(Page) ? value.id : value) }) }
+  
   def full_name
     "#{first_name} #{last_name}"
   end

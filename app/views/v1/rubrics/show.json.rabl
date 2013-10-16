@@ -1,6 +1,11 @@
 object @rubric
 attributes :id, :title, :description, :unit_id
 
+
+child(:page) do
+  attributes :id, :title, :grade, :subject_id
+end
+
 child(:unit) do
   attributes :id, :grade
   

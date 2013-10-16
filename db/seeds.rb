@@ -1,3 +1,27 @@
+#-------------------------------------------
+#
+# OAuth Angular App
+#
+#-------------------------------------------
+app = Doorkeeper::Application.create(:name => 'angular', :redirect_uri => 'http://test.classvantage.com')
+app.uid = "20100c70466699968233062227f148840238540ecf511a92e8d5d6748f0149de"
+app.secret = "9a13e2fd0a71494c87681b462213d416a3b8b503ca6ed13690bfe3de4ce0ee29"
+app.save
+
+#-------------------------------------------
+#
+# Users
+#
+#-------------------------------------------
+
+User.create :email => 'walter@white.com', :password => 'lkj123poiasd'
+User.create :email => 'sean@king.st', :password => 'password'
+User.create :email => 'tephen@king.st', :password => 'password'
+User.create :email => 'ryan@classvantage.com', :password => 'password'
+User.create :email => 'steve@classvantage.com', :password => 'password'
+User.create :email => 'nicole@classvantage.com', :password => 'password'
+User.create :email => 'jared@classvantage.com', :password => 'password'
+
 #-------------------------------------------------------------------------------
 #
 #  Ontario

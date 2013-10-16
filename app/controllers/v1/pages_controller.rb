@@ -10,6 +10,10 @@ module V1
     end
     
     def create
+      if params[:page][:copy_students_from]
+        params[:page][:student_ids] = Student.from_page(params[:page][:copy_students_from]).map{|student| student.id}
+      end
+      
       @page = current_user.default_gradebook.pages.build(permitted_params[:page])
 
       if @page.save
@@ -31,7 +35,12 @@ module V1
     
     
     def allowed_params
-      [:title, :grade, :subject_id, :students_attributes => [:full_name]]
+      [
+        :title, :grade, :subject_id, :student_ids => [],
+        :students_attributes => [
+            :full_name, :_destroy, :id
+          ]
+      ]
     end
     
   end

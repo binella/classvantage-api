@@ -4,6 +4,9 @@ class Page < ActiveRecord::Base
   has_and_belongs_to_many :students
   #has_and_belongs_to_many :rubrics # WERE NOT DOING THIS RIGHT NOW BUT JOIN TABLE EXISTS
   has_many :rubrics
-  accepts_nested_attributes_for :students
+  
+  
+  accepts_nested_attributes_for :students, :allow_destroy => true
+  
   
 end
