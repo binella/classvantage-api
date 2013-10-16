@@ -1,12 +1,15 @@
 module V1
   class PagesController < ApplicationController
     
+    # TODO: use load_and_authorize_resource
+    
     def index
       @pages = current_user.default_gradebook.pages.order("created_at DESC")
     end
     
     def show
       @page = Page.find(params[:id])
+      authorize! :read, @page
     end
     
     def create
@@ -25,7 +28,7 @@ module V1
     
     def update
       @page = Page.find(params[:id])
-      
+      authorize! :update, @page
       if @page.update(permitted_params[:page])
         render 'show'
       else

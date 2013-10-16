@@ -9,6 +9,7 @@ module V1
     
     def show
       @rubric = Rubric.find params[:id]
+      authorize! :read, @rubric
     end
     
     def create
@@ -22,6 +23,9 @@ module V1
     end
     
     def update
+      @rubric = Rubric.find(params[:id])
+      authorize! :update, @rubric
+      
       if Rubric.update(params[:id], permitted_params[:rubric])
         render :json => { :success => true }
       else
