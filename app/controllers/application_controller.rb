@@ -5,6 +5,10 @@ class ApplicationController < ActionController::Base #API
   
   respond_to :json
 
+  rescue_from CanCan::AccessDenied do |exception|
+    render :nothing => true, :status => :forbidden
+  end
+
   def options 
     render :text => '', :content_type => 'text/plain'
   end
