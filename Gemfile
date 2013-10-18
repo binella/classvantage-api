@@ -6,11 +6,11 @@ gem 'rails', '4.0.0'
 #gem 'rails-api'
 
 # Use mysql as the database for Active Record
-group :development, :production, :test do
+group :development, :production do
   gem 'mysql2'
 end
 
-group :staging do
+group :test do
   gem 'pg'
 end
 
