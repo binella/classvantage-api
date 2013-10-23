@@ -7,11 +7,11 @@ gem 'rails', '4.0.0'
 
 # Use mysql as the database for Active Record
 #group :development, :production do
-#  gem 'mysql2'
+  gem 'mysql2'
 #end
 
 #group :test do
-  gem 'pg'
+#  gem 'pg'
 #end
  
 # To use ActiveModel has_secure_password
@@ -32,6 +32,10 @@ gem 'rails', '4.0.0'
 #gem 'angularjs-rails'
 gem 'devise'
 gem 'doorkeeper'
+
 gem 'rabl'
+gem 'active_model_serializers'
+
 gem 'rails_engine_decorators'
 gem 'cancan'
+

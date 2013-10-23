@@ -10,6 +10,8 @@ GEM
       erubis (~> 2.7.0)
       rack (~> 1.5.2)
       rack-test (~> 0.6.2)
+    active_model_serializers (0.8.1)
+      activemodel (>= 3.0)
     activemodel (4.0.0)
       activesupport (= 4.0.0)
       builder (~> 3.1.0)
@@ -51,8 +53,8 @@ GEM
     mime-types (1.25)
     minitest (4.7.5)
     multi_json (1.8.0)
+    mysql2 (0.3.13)
     orm_adapter (0.4.0)
-    pg (0.17.0)
     polyglot (0.3.3)
     rabl (0.8.3)
       activesupport (>= 2.3.14)
@@ -99,10 +101,11 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  active_model_serializers
   cancan
   devise
   doorkeeper
-  pg
+  mysql2
   rabl
   rails (= 4.0.0)
   rails_engine_decorators

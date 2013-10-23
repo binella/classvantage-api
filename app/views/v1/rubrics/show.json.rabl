@@ -1,19 +1,22 @@
-object @rubric
-attributes :id, :title, :description, :unit_id
+#object @rubric
 
-
-child(:page) do
-  attributes :id, :title, :grade, :subject_id
-end
-
-child(:unit) do
-  attributes :id, :grade
+child(@rubric) do
+  attributes :id, :title, :description, :unit_id, :page_id
   
-  child(:strand) do
-    attribute :id
-    
-    child(:subject) do
+  child(:unit) do
+    attributes :id, :grade
+
+    child(:strand) do
       attribute :id
+
+      child(:subject) do
+        attribute :id
+      end
     end
   end
+  
+end
+
+child([@rubric.page]) do
+  attributes :id, :title, :grade, :subject_id
 end
