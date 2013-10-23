@@ -1,8 +1,5 @@
-#collection @units
-object false
-
-child(@units) do
-  attributes :id, :grade, :title
+child(@unit) do
+  attributes :id, :grade, :title, :overall_expectations_id
 
   node (:subject_id) { |u| u.strand.subject_id }
 
@@ -15,3 +12,6 @@ child(@units) do
   end
 end
 
+child(@unit.overall_expectations) do
+  attributes :id, :code, :short_form, :long_form, :created_at
+end

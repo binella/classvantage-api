@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  long_form: MyString
+  short_form: MyString
+  number: MyString
+  unit_id: 1
+
+two:
+  long_form: MyString
+  short_form: MyString
+  number: MyString
+  unit_id: 1

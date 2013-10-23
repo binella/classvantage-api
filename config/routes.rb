@@ -12,7 +12,7 @@ Classvantage::Application.routes.draw do
     
     resources :rubrics
     
-    resources :units, :only => [:index]
+    resources :units, :only => [:index, :show, :update]
     
     # Default gradebook
     resource :gradebook, :controller => :gradebooks

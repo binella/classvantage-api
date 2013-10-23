@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131009200318) do
+ActiveRecord::Schema.define(version: 20131023214235) do
 
   create_table "curriculums", force: true do |t|
     t.string   "title"
@@ -64,6 +64,15 @@ ActiveRecord::Schema.define(version: 20131009200318) do
 
   add_index "oauth_applications", ["uid"], name: "index_oauth_applications_on_uid", unique: true, using: :btree
 
+  create_table "overall_expectations", force: true do |t|
+    t.string   "long_form"
+    t.string   "short_form"
+    t.string   "code"
+    t.integer  "unit_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "pages", force: true do |t|
     t.string   "title"
     t.datetime "created_at"
@@ -96,6 +105,16 @@ ActiveRecord::Schema.define(version: 20131009200318) do
     t.datetime "updated_at"
     t.integer  "unit_id"
     t.integer  "page_id"
+  end
+
+  create_table "specific_expectations", force: true do |t|
+    t.string   "code"
+    t.string   "description"
+    t.string   "example"
+    t.string   "friendly_description"
+    t.integer  "overall_expectation_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "strands", force: true do |t|
