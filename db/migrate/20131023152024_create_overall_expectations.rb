@@ -1,4 +1,4 @@
-class CreateOverallExpectaions < ActiveRecord::Migration
+class CreateOverallExpectations < ActiveRecord::Migration
   def change
     create_table :overall_expectations do |t|
       t.string :long_form
