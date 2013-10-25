@@ -18,5 +18,6 @@ child(@rubric) do
 end
 
 child([@rubric.page]) do
-  attributes :id, :title, :grade, :subject_id
+  # should use partial or extend
+  attributes :id, :title, :grade, :subject_id, :rubric_ids, :student_ids
 end
