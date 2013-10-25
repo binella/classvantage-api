@@ -14,9 +14,15 @@ Classvantage::Application.routes.draw do
     
     resources :units, :only => [:index, :show, :update]
     
+    resources :overall_expectations, :only => [:create, :update]
+    resources :specific_expectations, :only => [:create, :update]
+    
     # Default gradebook
     resource :gradebook, :controller => :gradebooks
+    
     resources :pages
+    
+    resources :students
     
     #resources :gradebooks do
       #resources :pages

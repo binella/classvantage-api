@@ -1,3 +1,3 @@
 class SpecificExpectation < ActiveRecord::Base
-  belongs_to :specific_expectation
+  belongs_to :overall_expectation
 end

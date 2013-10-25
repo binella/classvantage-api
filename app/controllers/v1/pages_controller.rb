@@ -32,7 +32,7 @@ module V1
       if @page.update(permitted_params[:page])
         render 'show'
       else
-        render :json => { :error => "Error updating page"}
+        render :json => { :error => "Error updating page"} #status?
       end
     end
     

@@ -11,17 +11,21 @@ module V1
       @unit = Unit.with_subject.find(params[:id])
     end
     
+
     def update
-      
+      @unit = Unit.find(params[:id])
+      #authorize! :update, @unit
+      if @unit.update_attributes(permitted_params[:unit])
+        render 'show'
+      else
+        render :json => {:error => 'Error saving the unit'}
+      end
     end
     
     def allowed_params
-      [ # Only allowed to add/remove overall_expectations
-        :overall_expectations_attributes => [
-            :id, :_destroy, :code, :short_form, :long_form
-          ]
-      ]
+      [:overall_expectation_ids => []]
     end
-    
+
+
   end
 end

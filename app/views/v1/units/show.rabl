@@ -1,5 +1,5 @@
 child(@unit) do
-  attributes :id, :grade, :title, :overall_expectations_id
+  attributes :id, :grade, :title, :overall_expectation_ids
 
   node (:subject_id) { |u| u.strand.subject_id }
 
@@ -13,5 +13,10 @@ child(@unit) do
 end
 
 child(@unit.overall_expectations) do
-  attributes :id, :code, :short_form, :long_form, :created_at
+  attributes :id, :code, :short_form, :long_form, :unit_id, :created_at, :specific_expectation_ids
+end
+
+# There must be a better way for this!!
+child(@unit.overall_expectations.map(&:specific_expectations).flatten) do
+  attributes :id, :code, :description, :example, :friendly_description, :overall_expectation_id, :created_at
 end
