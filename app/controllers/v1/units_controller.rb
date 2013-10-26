@@ -23,7 +23,7 @@ module V1
     end
     
     def allowed_params
-      [:overall_expectation_ids => []]
+      [{:overall_expectation_ids => []}, :overall_expectation_ids]
     end
 
 
