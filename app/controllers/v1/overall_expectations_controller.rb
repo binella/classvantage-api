@@ -17,7 +17,7 @@ module V1
       if @overall_expectation.update_attributes(permitted_params[:overall_expectation])
         render :json => {:success => true}
       else
-        render :json => {:erro => 'ERROR'}
+        render :json => {:error => 'ERROR'}
       end
     end
     

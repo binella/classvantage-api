@@ -39,7 +39,7 @@ module V1
     
     
     def allowed_params
-      [:title, :description, :unit_id, :page_id]
+      [:title, :description, :unit_id, :page_id, :custom_expectation]
     end
     
   end

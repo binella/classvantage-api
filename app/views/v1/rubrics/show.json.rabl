@@ -1,7 +1,7 @@
 #object @rubric
 
 child(@rubric) do
-  attributes :id, :title, :description, :unit_id, :page_id
+  attributes :id, :title, :description, :unit_id, :page_id, :custom_expectation
   
   child(:unit) do
     attributes :id, :grade

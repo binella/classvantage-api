@@ -39,3 +39,4 @@ gem 'active_model_serializers'
 gem 'rails_engine_decorators'
 gem 'cancan'
 
+gem "sentry-raven" 
