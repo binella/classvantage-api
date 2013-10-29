@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  criteria: MyText
+  level1_description: MyText
+  level2_description: MyText
+  level3_description: MyText
+  level4_description: MyText
+  rubric_id: 1
+
+two:
+  criteria: MyText
+  level1_description: MyText
+  level2_description: MyText
+  level3_description: MyText
+  level4_description: MyText
+  rubric_id: 1

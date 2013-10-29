@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131029151104) do
+ActiveRecord::Schema.define(version: 20131029180734) do
 
   create_table "curriculums", force: true do |t|
     t.string   "title"
@@ -97,6 +97,17 @@ ActiveRecord::Schema.define(version: 20131029151104) do
 
   add_index "pages_students", ["page_id"], name: "index_pages_students_on_page_id", using: :btree
   add_index "pages_students", ["student_id"], name: "index_pages_students_on_student_id", using: :btree
+
+  create_table "rows", force: true do |t|
+    t.text     "criteria"
+    t.text     "level1_description"
+    t.text     "level2_description"
+    t.text     "level3_description"
+    t.text     "level4_description"
+    t.integer  "rubric_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "rubrics", force: true do |t|
     t.string   "title"
