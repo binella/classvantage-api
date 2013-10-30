@@ -21,6 +21,9 @@ Classvantage::Application.routes.draw do
     # Default gradebook
     resource :gradebook, :controller => :gradebooks
     
+    resources :assessments, :only => [:create, :update, :show]
+    resources :marks, :only => [:create, :update, :show]
+    
     resources :pages
     
     resources :students
