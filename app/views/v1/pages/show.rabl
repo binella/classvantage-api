@@ -14,10 +14,18 @@ child(@page.students) do
   attributes :id, :first_name, :last_name, :full_name, :assessment_ids
 end
 
-child(@page.rubrics) do
-  attributes :id, :title
+child(@rubrics) do
+  attributes :id, :title, :page_id, :row_ids
 end
 
-child(Assessment.for_students(@page.student_ids).for_rubrics(@page.rubric_ids)) do
-  attributes :id, :student_id, :rubric_id, :value
+child(@assessments) do
+  attributes :id, :student_id, :rubric_id, :value, :mark_ids
+end
+
+child(@assessments.map(&:marks).flatten) do
+  attributes :id, :value, :assessment_id, :row_id
+end
+
+child(@rubrics.map(&:rows).flatten) do
+  attributes :id
 end

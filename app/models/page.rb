@@ -9,4 +9,7 @@ class Page < ActiveRecord::Base
   accepts_nested_attributes_for :students, :allow_destroy => true
   
   
+  scope :with_students_and_assessments, includes(:students => [{:assessments => [:marks]}])
+  scope :with_rubrics, includes(:rubrics)
+  
 end

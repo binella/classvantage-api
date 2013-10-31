@@ -8,8 +8,12 @@ module V1
     end
     
     def show
-      @page = Page.find(params[:id])
+      @page = Page.with_rubrics.with_students_and_assessments.find(params[:id])
       authorize! :read, @page
+      
+      @assessments = Assessment.with_marks.for_students(@page.student_ids).for_rubrics(@page.rubric_ids)
+      @rubrics = @page.rubrics.includes(:rows)
+      
     end
     
     def create
