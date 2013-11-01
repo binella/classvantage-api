@@ -21,7 +21,7 @@ module V1
       @mark = Mark.find(params[:id])
       #authorize! :update, @mark
       if @mark.update_attributes(permitted_params[:mark])
-        render 'show'
+        render :json => {:success => true} #'show'
       else
         render :json => {:error => 'Error saving mark'}
       end

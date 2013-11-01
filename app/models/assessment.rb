@@ -1,7 +1,7 @@
 class Assessment < ActiveRecord::Base
   belongs_to :student
   belongs_to :rubric
-  has_many :marks
+  has_many :marks, :dependent => :destroy
   
   
   scope :for_rubrics, lambda { |rubric| where(:rubric_id => rubric) } 

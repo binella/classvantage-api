@@ -18,8 +18,9 @@ module V1
     
     def create
       if params[:page][:copy_students_from]
-        params[:page][:student_ids] = Student.from_page(params[:page][:copy_students_from]).map{|student| student.id}
+        params[:page][:student_ids] = Student.from_page(params[:page][:copy_students_from]).map(&:id)
       end
+      
       
       @page = current_user.default_gradebook.pages.build(permitted_params[:page])
 
@@ -34,7 +35,7 @@ module V1
       @page = Page.find(params[:id])
       authorize! :update, @page
       if @page.update(permitted_params[:page])
-        render 'show'
+        render :json => {:success => true}  #'show'
       else
         render :json => { :error => "Error updating page"} #status?
       end

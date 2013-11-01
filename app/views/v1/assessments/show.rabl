@@ -1,3 +1,4 @@
+
 child(@assessment) do
   attributes :id, :student_id, :rubric_id, :value, :mark_ids
   
@@ -16,7 +17,7 @@ child([@assessment.rubric.page]) do
 end
 
 child([@assessment.student]) do
-  attributes :id, :first_name, :last_name
+  attributes :id, :first_name, :last_name, :assessment_ids
 end
 
 child(@assessment.rubric.rows) do
