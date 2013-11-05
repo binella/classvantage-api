@@ -6,13 +6,13 @@ gem 'rails', '4.0.0'
 #gem 'rails-api'
 
 # Use mysql as the database for Active Record
-#group :development, :production do
-#  gem 'mysql2'
-#end
+group :development, :test, :staging do
+  gem 'mysql2'
+end
 
-#group :test do
+group :production do
   gem 'pg'
-#end
+end
  
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
