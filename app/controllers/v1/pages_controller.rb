@@ -44,7 +44,7 @@ module V1
     
     def allowed_params
       [
-        :title, :grade, {:student_ids => []}, :student_ids
+        :title, :grade, :subject_id, {:student_ids => []}, :student_ids
       ]
     end
     

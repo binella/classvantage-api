@@ -10,7 +10,9 @@ class Page < ActiveRecord::Base
   scope :with_rubrics, includes(:rubrics)
   
   def delete_assessments(student)
-    student.assessments.for_rubrics(rubrics).destroy_all
+    # BUG in 4.0.1
+    # student.assessments.for_rubrics(rubrics).destroy_all
+    Assessment.for_students(student).for_rubric(rubrics).destroy_all
   end
   
 end
