@@ -12,9 +12,7 @@ class Page < ActiveRecord::Base
   def delete_assessments(student)
     # BUG in 4.0.1
     # student.assessments.for_rubrics(rubrics).destroy_all
-    assess_for_student = Assessment.for_students(student).all
-    assess_for_student_for_rubrics =  assess_for_student.for_rubric(rubrics)
-    assess_for_student_for_rubrics.destroy_all
+    student.assessments.for_rubrics(rubrics.all).destroy_all
   end
   
 end
