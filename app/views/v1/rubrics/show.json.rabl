@@ -3,18 +3,6 @@
 child(@rubric) do
   attributes :id, :title, :description, :unit_id, :page_id, :custom_expectation, :row_ids
   
-  child(:unit) do
-    attributes :id, :grade
-
-    child(:strand) do
-      attribute :id
-
-      child(:subject) do
-        attribute :id
-      end
-    end
-  end
-  
 end
 
 child([@rubric.page]) do
@@ -24,4 +12,20 @@ end
 
 child(@rubric.rows) do
   attributes :id, :criteria, :level1_description, :level2_description, :level3_description, :level4_description, :rubric_id
+end
+
+if @rubric.unit 
+
+  child([@rubric.unit]) do
+    attributes :id, :grade, :subject_id
+
+    child(:strand) do
+      attribute :id
+
+      child(:subject) do
+        attribute :id
+      end
+    end
+  end
+
 end
