@@ -7,7 +7,8 @@ end
 
 child([@rubric.page]) do
   # should use partial or extend
-  attributes :id, :title, :grade, :subject_id, :rubric_ids, :student_ids
+  # dont really need to include all associations
+  attributes :id, :title, :grade, :subject_id, :rubric_ids, :assignment_ids, :student_ids
 end
 
 child(@rubric.rows) do

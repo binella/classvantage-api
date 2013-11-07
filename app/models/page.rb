@@ -4,6 +4,7 @@ class Page < ActiveRecord::Base
   has_and_belongs_to_many :students, :after_remove => :delete_assessments
   #has_and_belongs_to_many :rubrics # WERE NOT DOING THIS RIGHT NOW BUT JOIN TABLE EXISTS
   has_many :rubrics
+  has_many :assignments
   
   
   scope :with_students_and_assessments, includes(:students => [{:assessments => [:marks]}])

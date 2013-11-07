@@ -11,6 +11,7 @@ Classvantage::Application.routes.draw do
     resource :me, :controller => :me
     
     resources :rubrics
+    resources :assignments
     
     resources :units, :only => [:index, :show, :update]
     

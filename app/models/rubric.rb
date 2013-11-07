@@ -3,7 +3,7 @@ class Rubric < ActiveRecord::Base
   #has_and_belongs_to_many :pages # WERE NOT DOING THIS RIGHT NOW (BUT JOIN TABLE EXISTS)
   belongs_to :page
   has_many :rows, :dependent => :destroy
-  has_many :assessments
+  has_many :assessments, :as => :assessable
   has_and_belongs_to_many :overall_expectations
 
   scope :with_rows, includes(:rows)

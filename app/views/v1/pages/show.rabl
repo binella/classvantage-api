@@ -1,7 +1,7 @@
 #object false
 
 child(@page) do
-  attributes :id, :title, :grade, :student_ids, :rubric_ids, :created_at
+  attributes :id, :title, :grade, :student_ids, :rubric_ids, :assignment_ids, :created_at
   
   child :subject do
     attributes :id, :title
@@ -20,9 +20,13 @@ if @rubrics
   end
 end
 
+child(@page.assignments) do
+  attributes :id, :title, :page_id
+end
+
 if @assessments
   child(@assessments) do
-    attributes :id, :student_id, :rubric_id, :value, :mark_ids
+    attributes :id, :student_id, :assessable_id, :assessable_type, :value, :mark_ids
   end
 
   child(@assessments.map(&:marks).flatten) do

@@ -11,12 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131106211629) do
+ActiveRecord::Schema.define(version: 20131107174353) do
 
   create_table "assessments", force: true do |t|
     t.integer  "student_id"
-    t.integer  "rubric_id"
+    t.integer  "assessable_id"
     t.integer  "value"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "assessable_type"
+  end
+
+  create_table "assignments", force: true do |t|
+    t.string   "title"
+    t.integer  "page_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
