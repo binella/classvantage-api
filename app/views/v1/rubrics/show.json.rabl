@@ -1,7 +1,7 @@
 #object @rubric
 
 child(@rubric) do
-  attributes :id, :title, :description, :unit_id, :page_id, :custom_expectation, :row_ids
+  attributes :id, :title, :description, :unit_id, :page_id, :custom_expectation, :custom_expectation_enabled, :row_ids, :overall_expectation_ids
   
 end
 
@@ -28,4 +28,8 @@ if @rubric.unit
     end
   end
 
+end
+
+child(@rubric.overall_expectations) do
+  attributes :id, :short_form, :long_form
 end

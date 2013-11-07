@@ -39,7 +39,7 @@ module V1
     
     
     def allowed_params
-      [:title, :description, :unit_id, :page_id, :custom_expectation, :row_ids, {:row_ids => []} ]
+      [:title, :description, :unit_id, :page_id, :custom_expectation, :custom_expectation_enabled, :row_ids, {:row_ids => []}, :overall_expectation_ids, {:overall_expectation_ids => []} ]
     end
     
   end
