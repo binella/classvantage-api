@@ -16,12 +16,12 @@ end
 
 if @rubrics
   child(@rubrics) do
-    attributes :id, :title, :page_id, :row_ids
+    attributes :id, :title, :page_id, :row_ids, :created_at
   end
 end
 
 child(@page.assignments) do
-  attributes :id, :title, :page_id
+  attributes :id, :title, :assignment_type, :page_id, :created_at
 end
 
 if @assessments
@@ -34,6 +34,6 @@ if @assessments
   end
 
   child(@rubrics.map(&:rows).flatten) do
-    attributes :id
+    attributes :id, :created_at
   end
 end

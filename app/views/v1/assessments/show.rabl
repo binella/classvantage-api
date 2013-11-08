@@ -27,6 +27,6 @@ end
 
 if @assessment.assessable.is_a?(Rubric)
   child(@assessment.assessable.rows) do
-    attributes :id, :criteria, :level1_description, :level2_description, :level3_description, :level4_description
+    attributes :id, :criteria, :level1_description, :level2_description, :level3_description, :level4_description, :created_at
   end
 end

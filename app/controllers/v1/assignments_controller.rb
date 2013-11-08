@@ -25,7 +25,7 @@ module V1
     end
     
     def allowed_params
-      [:title, :page_id]
+      [:title, :assignment_type, :page_id]
     end
     
   end

@@ -21,7 +21,7 @@ module V1
       @assessment = Assessment.find(params[:id])
       #authorize! :update, @assessment
       if @assessment.update_attributes(permitted_params[:assessment])
-        render 'show'
+        render :json => {:success => true}  #'show'
       else
         render :json => {:error => 'Error saving the assessment'}
       end
