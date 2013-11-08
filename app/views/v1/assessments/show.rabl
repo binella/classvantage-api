@@ -1,6 +1,6 @@
 
 child(@assessment) do
-  attributes :id, :student_id, :assessable_id, :assessable_type, :value, :mark_ids
+  attributes :id, :student_id, :assessable_id, :assessable_type, :value, :mark_ids, :comment
   
 end
 

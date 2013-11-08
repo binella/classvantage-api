@@ -28,7 +28,7 @@ module V1
     end
     
     def allowed_params
-      [:assessable_id, :assessable_type, :student_id, :value]
+      [:assessable_id, :assessable_type, :student_id, :value, :comment]
     end
 
 

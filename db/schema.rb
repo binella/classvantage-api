@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131107224147) do
+ActiveRecord::Schema.define(version: 20131108201522) do
 
   create_table "assessments", force: true do |t|
     t.integer  "student_id"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20131107224147) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "assessable_type"
+    t.text     "comment"
   end
 
   create_table "assignments", force: true do |t|
@@ -146,7 +147,7 @@ ActiveRecord::Schema.define(version: 20131107224147) do
     t.datetime "updated_at"
     t.integer  "unit_id"
     t.integer  "page_id"
-    t.string   "custom_expectation"
+    t.text     "custom_expectation"
     t.boolean  "custom_expectation_enabled"
   end
 
