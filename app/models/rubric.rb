@@ -7,14 +7,22 @@ class Rubric < ActiveRecord::Base
   has_and_belongs_to_many :overall_expectations
 
   scope :with_rows, includes(:rows)
+
+
+  after_update :wipe_overall_expectations
   
   def custom_expectation_enabled=(new_val)
-    Rails.logger.info "HELLLLLLLLOOO:    #{custom_expectation}"
     if custom_expectation and custom_expectation != ''
       write_attribute :custom_expectation_enabled, new_val
     else
       write_attribute :custom_expectation_enabled, false
     end
+  end
+  
+
+  def wipe_overall_expectations
+    #Rails.logger.info "CHANGES ----> #{unit_id_changed?}"
+    self.overall_expectation_ids = nil if unit_id_changed?
   end
   
 end
