@@ -14,10 +14,9 @@ child(@page.students) do
   attributes :id, :first_name, :last_name, :full_name, :assessment_ids
 end
 
-if @rubrics
-  child(@rubrics) do
-    attributes :id, :title, :page_id, :row_ids, :created_at
-  end
+
+child(@rubrics) do
+  attributes :id, :title, :page_id, :row_ids, :created_at
 end
 
 child(@page.assignments) do
