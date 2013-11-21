@@ -6,8 +6,14 @@ class User < ActiveRecord::Base
          
   has_many :gradebooks
   
+  validates_presence_of :province, :name
+  
   after_create :create_gradebook
 
+  
+  def required_fields
+    [:name, :school, :province]
+  end
   
   def create_gradebook
     self.gradebooks.create

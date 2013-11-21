@@ -1,7 +1,8 @@
 class ApplicationController < ActionController::Base #API
+  # TODO: use Rack:Cors
   before_filter :cors_set_access_control_headers
   
-  doorkeeper_for :all, :except => [:options]
+  doorkeeper_for :all, :except => [:options, :register]
   
   respond_to :json
 
@@ -12,6 +13,15 @@ class ApplicationController < ActionController::Base #API
 
   def options 
     render :text => '', :content_type => 'text/plain'
+  end
+  
+  def register
+    @user = User.new params.permit :name, :email, :password, :province, :school
+    if @user.save
+      render :json => {:success => true}
+    else
+      render :json => {:error => @user.errors.full_messages}, :status => :not_acceptable
+    end
   end
 
   #rescue_from CanCan::AccessDenied do |exception|
@@ -33,11 +43,6 @@ class ApplicationController < ActionController::Base #API
   end
 
   private
-
-  # Is this needed?
-  #def authenticate_user!
-    # Do Nothing
-  #end
 
   def current_user
     @current_user ||= User.find(doorkeeper_token.resource_owner_id) if doorkeeper_token

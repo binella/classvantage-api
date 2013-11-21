@@ -8,7 +8,10 @@ module Doorkeeper
     def create
       response = strategy.authorize
       self.headers.merge! response.headers
-      self.response_body = response.body.to_json
+      # CUSTOM ACCESS LEVEL ATTRIBUTE
+      r_body = response.body
+      r_body.merge!({'admin' => '1'}) if strategy.resource_owner.try(:admin?)
+      self.response_body = r_body.to_json
       self.status        = response.status
     rescue Errors::DoorkeeperError => e
       handle_token_exception e
