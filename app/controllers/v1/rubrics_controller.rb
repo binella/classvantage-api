@@ -34,6 +34,14 @@ module V1
     end
     
     def destroy
+      @rubric = Rubric.find(params[:id])
+      #authorize! :destroy, @rubric
+    
+      if @rubric.destroy
+        render :json => {:success => true}
+      else
+        render :json => {:error => @rubric.errors.full_messages}, :status => :not_acceptable
+      end
       
     end
     

@@ -12,7 +12,7 @@ child([@rubric.page]) do
 end
 
 child(@rubric.rows) do
-  attributes :id, :criteria, :level1_description, :level2_description, :level3_description, :level4_description, :rubric_id
+  attributes :id, :criteria, :level1_description, :level2_description, :level3_description, :level4_description, :rubric_id, :created_at
 end
 
 if @rubric.unit 
