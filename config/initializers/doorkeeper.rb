@@ -10,7 +10,7 @@ module Doorkeeper
       self.headers.merge! response.headers
       # CUSTOM ACCESS LEVEL ATTRIBUTE
       r_body = response.body
-      r_body.merge!({'admin' => '1'}) #if strategy.resource_owner.try(:admin?)
+      r_body["admin"] = 1 #if strategy.resource_owner.try(:admin?)
       self.response_body = r_body.to_json
       self.status        = response.status
     rescue Errors::DoorkeeperError => e
