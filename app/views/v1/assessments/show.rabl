@@ -19,10 +19,16 @@ end
 
 child([@assessment.assessable.page]) do
   attributes :id, :title
-  
+=begin 
   if @assessment.assessable.is_a?(Rubric)
     attribute :student_ids
   end
+=end
+end
+
+#temp
+child([@assessment.student]) do
+  attributes :id, :first_name, :last_name
 end
 
 
@@ -46,11 +52,12 @@ if @assessment.assessable.is_a?(Rubric)
       end
     end
   end if @assessment.assessable.unit
-  
+=begin
   child(@assessment.assessable.page.students) do
     attributes :id, :first_name, :last_name, :assessment_ids
   end
-  
+=end
+
 else
   
   child([@assessment.student]) do
