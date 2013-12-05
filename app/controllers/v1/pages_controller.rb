@@ -41,6 +41,15 @@ module V1
       end
     end
     
+    def destroy
+      @page = Page.find(params[:id])
+      authorize! :destroy, @page
+      if @page.destroy
+        render :json => {:success => true}
+      else
+        render :json => {:error => @page.errors.full_messages}, :state => :not_acceptable
+      end
+    end
     
     def allowed_params
       [

@@ -217,22 +217,22 @@ Unit.create({ title: "Water Systems",                        strand: earth, grad
 #  Social Studies
 #---------------------------------------
 
-heritage = Strand.create({ title: "Heritage and Citizenship",     subject: social })
-canada   = Strand.create({ title: "Canada and World Connections", subject: social })
+heritage = Strand.create({ title: "Heritage and Identity",     subject: social })
+canada   = Strand.create({ title: "People and Environments", subject: social })
 
-Unit.create({ title: "Relationships, Rules, and Responsibilities",  strand: heritage, grade: 1 })
-Unit.create({ title: "Traditions and Celebrations",                 strand: heritage, grade: 2 })
-Unit.create({ title: "Early Settlements in Upper Canada",           strand: heritage, grade: 3 })
-Unit.create({ title: "Medieval Times",                              strand: heritage, grade: 4 })
-Unit.create({ title: "Early Civilizations",                         strand: heritage, grade: 5 })
-Unit.create({ title: "First Nation Peoples and European Explorers", strand: heritage, grade: 6 })
+Unit.create({ title: "Our Changing Roles and Responsibilities",  strand: heritage, grade: 1 })
+Unit.create({ title: "Changing Family and Community Traditions",                 strand: heritage, grade: 2 })
+Unit.create({ title: "Communities in Canada 1780-1850",           strand: heritage, grade: 3 })
+Unit.create({ title: "Early Societies, 3000 BCE - 1500 CE",                              strand: heritage, grade: 4 })
+Unit.create({ title: "First Nation and Europeans in New France and Early Canada",                         strand: heritage, grade: 5 })
+Unit.create({ title: "Communities in Canada, Past and Present", strand: heritage, grade: 6 })
 
 Unit.create({ title: "The Local Community",                             strand: canada,   grade: 1 })
-Unit.create({ title: "Features of Communities Around the World",        strand: canada,   grade: 2 })
-Unit.create({ title: "Urban and Rural Communities",                     strand: canada,   grade: 3 })
-Unit.create({ title: "Canada's Provinces,Territories, and Regions",     strand: canada,   grade: 4 })
-Unit.create({ title: "Aspects of Citizenship and Government in Canada", strand: canada,   grade: 5 })
-Unit.create({ title: "Canada's Links to the World",                     strand: canada,   grade: 6 })
+Unit.create({ title: "Global Communities",        strand: canada,   grade: 2 })
+Unit.create({ title: "Living and Working in Ontario",                     strand: canada,   grade: 3 })
+Unit.create({ title: "Political and Physical Regions of Canada",     strand: canada,   grade: 4 })
+Unit.create({ title: "The Role of Government and Responsible Citizenship", strand: canada,   grade: 5 })
+Unit.create({ title: "Canada's Interaction with the Global Community",                     strand: canada,   grade: 6 })
 
 #---------------------------------------
 #  History and Geography

@@ -1,7 +1,7 @@
 #object @user
 #node(:name) { |u| u.email }
 child(@user => :me) do
-  node(:name) { |u| u.email }
+  attributes :name, :email, :school
   
   node(:access_level) do |u|
     u.admin? ? 2 : 1;
