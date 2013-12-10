@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base #API
   # TODO: use Rack:Cors
   before_filter :cors_set_access_control_headers
   
-  doorkeeper_for :all, :except => [:options, :register]
+  doorkeeper_for :all, :except => [:options, :register, :reset_password]
   
   respond_to :json
 
@@ -21,6 +21,24 @@ class ApplicationController < ActionController::Base #API
       render :json => {:success => true}
     else
       render :json => {:error => @user.errors.full_messages}, :status => :not_acceptable
+    end
+  end
+
+  def reset_password
+    if params[:token]
+      @user = User.reset_password_by_token :reset_password_token => params[:token], :password => params[:password], :password_confirmation => params[:password_confirmation]
+      if @user.errors
+        render :json => {:error => @user.errors.full_messages}, :status => :not_acceptable
+      else
+        render :json => {:success => true}
+      end
+    else
+      @user = User.where(:email => params[:email]).first
+      if @user and @user.send_reset_password_instructions
+        render :json => {:success => true}
+      else
+        render :json => {:error => "Email address not found"}, :status => :not_acceptable
+      end
     end
   end
 

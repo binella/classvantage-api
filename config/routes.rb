@@ -3,9 +3,10 @@ Classvantage::Application.routes.draw do
   match '/*path' => 'application#options', :via => :options
   
   use_doorkeeper
-  #devise_for :users
+  devise_for :users
   
   match '/register' => 'application#register', :via => :post
+  match '/reset_password' => 'application#reset_password', :via => :post
   
   namespace :v1, :defaults => { :format => 'json' } do
     resource :me, :controller => :me
