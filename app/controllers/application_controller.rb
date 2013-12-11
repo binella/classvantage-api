@@ -27,10 +27,10 @@ class ApplicationController < ActionController::Base #API
   def reset_password
     if params[:token]
       @user = User.reset_password_by_token :reset_password_token => params[:token], :password => params[:password], :password_confirmation => params[:password_confirmation]
-      if @user.errors
-        render :json => {:error => @user.errors.full_messages}, :status => :not_acceptable
-      else
+      if @user.errors.messages.empty?
         render :json => {:success => true}
+      else  
+        render :json => {:error => @user.errors.full_messages}, :status => :not_acceptable
       end
     else
       @user = User.where(:email => params[:email]).first
