@@ -1,3 +1,22 @@
+module Devise
+  module Mailers
+    module Helpers
+
+
+      def initialize_from_record(record)
+        @scope_name = "User"
+        @resource   = instance_variable_set("@user", record)
+      end
+      
+      def subject_for(key)
+        I18n.t(:"user_subject", :scope => [:devise, :mailer, key],
+          :default => [:subject, key.to_s.humanize])
+      end
+      
+    end
+  end
+end
+
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|

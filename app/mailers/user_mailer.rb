@@ -4,6 +4,6 @@ class UserMailer < ActionMailer::Base
   def reset_password_instructions(record, token, opts={})
     @token = token
     @user = record
-    
+    mail :to => @user.email, :subject => 'Password Reset'
   end
 end
