@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
          
   has_many :gradebooks
   
-  validates_presence_of :province, :name
+  validates_presence_of :province, :name, :school
   
   after_create :create_gradebook
 
