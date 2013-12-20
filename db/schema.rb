@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131121162601) do
+ActiveRecord::Schema.define(version: 20131219194030) do
 
   create_table "assessments", force: true do |t|
     t.integer  "student_id"
@@ -29,6 +29,34 @@ ActiveRecord::Schema.define(version: 20131121162601) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "assignment_type"
+  end
+
+  create_table "checklist_items", force: true do |t|
+    t.text     "criteria"
+    t.integer  "checklist_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "checklists", force: true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.integer  "unit_id"
+    t.integer  "page_id"
+    t.text     "custom_expectation"
+    t.boolean  "custom_expectation_enabled"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "checklists_overall_expectations", id: false, force: true do |t|
+    t.integer "checklist_id",           null: false
+    t.integer "overall_expectation_id", null: false
+  end
+
+  create_table "checklists_pages", id: false, force: true do |t|
+    t.integer "checklist_id", null: false
+    t.integer "page_id",      null: false
   end
 
   create_table "curriculums", force: true do |t|

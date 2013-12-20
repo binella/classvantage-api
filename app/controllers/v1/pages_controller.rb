@@ -11,9 +11,9 @@ module V1
       @page = Page.with_rubrics.with_students_and_assessments.find(params[:id])
       authorize! :read, @page
       
-      @assessments = Assessment.with_marks.for_students(@page.student_ids).for_rubrics_or_assignments(@page.rubric_ids, @page.assignment_ids)
+      @assessments = Assessment.with_marks.for_students(@page.student_ids).for_rubrics_or_assignments_or_checklists(@page.rubric_ids, @page.assignment_ids, @page.checklist_ids)
       @rubrics = @page.rubrics.includes(:rows)
-      
+      @checklists = @page.checklists
     end
     
     def create

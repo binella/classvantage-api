@@ -5,6 +5,7 @@ class Page < ActiveRecord::Base
   #has_and_belongs_to_many :rubrics # WERE NOT DOING THIS RIGHT NOW BUT JOIN TABLE EXISTS
   has_many :rubrics, :dependent => :destroy
   has_many :assignments, :dependent => :destroy
+  has_many :checklists, :dependent => :destroy
   
   
   scope :with_students_and_assessments, includes(:students => [{:assessments => [:marks]}])

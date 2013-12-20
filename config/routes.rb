@@ -13,12 +13,14 @@ Classvantage::Application.routes.draw do
     
     resources :rubrics
     resources :assignments
+    resources :checklists
     
     resources :units, :only => [:index, :show, :update]
     
     resources :overall_expectations, :only => [:create, :update]
     resources :specific_expectations, :only => [:create, :update]
     resources :rows, :only => [:create, :update]
+    resources :checklist_items, :only => [:create, :update]
     
     # Default gradebook
     resource :gradebook, :controller => :gradebooks

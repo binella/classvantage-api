@@ -1,7 +1,7 @@
 #object false
 
 child(@page) do
-  attributes :id, :title, :grade, :student_ids, :rubric_ids, :assignment_ids, :created_at
+  attributes :id, :title, :grade, :student_ids, :rubric_ids, :assignment_ids, :checklist_ids, :created_at
   
   child :subject do
     attributes :id, :title
@@ -17,6 +17,10 @@ end
 
 child(@rubrics) do
   attributes :id, :title, :page_id, :row_ids, :created_at
+end
+
+child(@checklists) do
+  attributes :id, :title, :page_id, :created_at
 end
 
 child(@page.assignments) do

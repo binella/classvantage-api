@@ -13,6 +13,8 @@ child([@assessment.assessable]) do
   
   if @assessment.assessable.is_a?(Rubric)
     attributes :description, :row_ids, :overall_expectation_ids, :custom_expectation, :custom_expectation_enabled, :unit_id
+  elsif @assessment.assessable.is_a?(Checklist)
+    attributes :description, :checklist_item_ids, :overall_expectation_ids, :custom_expectation, :custom_expectation_enabled, :unit_id
   end
   
 end
@@ -58,6 +60,27 @@ if @assessment.assessable.is_a?(Rubric)
   end
 =end
 
+elsif @assessment.assessable.is_a?(Checklist)
+  child(@assessment.assessable.checklist_items) do
+    attributes :id, :criteria, :created_at
+  end
+  
+  child(@assessment.assessable.overall_expectations) do
+    attributes :id, :short_form, :long_form
+  end
+  
+  child([@assessment.assessable.unit]) do
+    attributes :id, :grade, :title
+
+    child(:strand) do
+      attributes :id
+
+      child(:subject) do
+        attributes :id, :title
+      end
+    end
+  end if @assessment.assessable.unit
+  
 else
   
   child([@assessment.student]) do

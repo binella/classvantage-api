@@ -3,5 +3,5 @@ child(@mark) do
 end
 
 child([@mark.assessment]) do
-  attributes :id, :student_id, :rubric_id, :value, :mark_ids
+  attributes :id, :student_id, :assessable_id, :assessable_type, :value, :mark_ids
 end

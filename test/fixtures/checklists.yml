@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  title: MyString
+  description: MyText
+  unit_id: 1
+  page_id: 1
+  custom_expectation: MyText
+  custom_expectation_enabled: false
+
+two:
+  title: MyString
+  description: MyText
+  unit_id: 1
+  page_id: 1
+  custom_expectation: MyText
+  custom_expectation_enabled: false
