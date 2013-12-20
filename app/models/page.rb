@@ -14,7 +14,7 @@ class Page < ActiveRecord::Base
   def delete_assessments(student)
     # BUG in 4.0.1
     # student.assessments.for_rubrics(rubrics).destroy_all
-    student.assessments.for_rubrics_or_assignments(rubric_ids, assignment_ids).destroy_all
+    student.assessments.for_rubrics_or_assignments_or_checklists(rubric_ids, assignment_ids, checklist_ids).destroy_all
   end
   
 end

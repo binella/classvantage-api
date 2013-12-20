@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131219194030) do
+ActiveRecord::Schema.define(version: 20131220014839) do
 
   create_table "assessments", force: true do |t|
     t.integer  "student_id"
@@ -73,10 +73,11 @@ ActiveRecord::Schema.define(version: 20131219194030) do
 
   create_table "marks", force: true do |t|
     t.integer  "assessment_id"
-    t.integer  "row_id"
+    t.integer  "assessable_item_id"
     t.integer  "value"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "assessable_item_type"
   end
 
   create_table "oauth_access_grants", force: true do |t|

@@ -20,7 +20,7 @@ child(@rubrics) do
 end
 
 child(@checklists) do
-  attributes :id, :title, :page_id, :created_at
+  attributes :id, :title, :page_id, :checklist_item_ids, :created_at
 end
 
 child(@page.assignments) do
@@ -33,10 +33,14 @@ if @assessments
   end
 
   child(@assessments.map(&:marks).flatten) do
-    attributes :id, :value, :assessment_id, :row_id
+    attributes :id, :value, :assessment_id, :assessable_item_id, :assessable_item_type
   end
 
   child(@rubrics.map(&:rows).flatten) do
+    attributes :id, :created_at
+  end
+  
+  child(@checklists.map(&:checklist_items).flatten) do
     attributes :id, :created_at
   end
 end

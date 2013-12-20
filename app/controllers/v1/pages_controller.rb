@@ -13,7 +13,7 @@ module V1
       
       @assessments = Assessment.with_marks.for_students(@page.student_ids).for_rubrics_or_assignments_or_checklists(@page.rubric_ids, @page.assignment_ids, @page.checklist_ids)
       @rubrics = @page.rubrics.includes(:rows)
-      @checklists = @page.checklists
+      @checklists = @page.checklists.includes(:checklist_items)
     end
     
     def create

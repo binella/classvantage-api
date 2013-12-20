@@ -5,7 +5,7 @@ child(@assessment) do
 end
 
 child(@assessment.marks) do
-  attributes :id, :row_id, :assessment_id, :value
+  attributes :id, :assessable_item_id, :assessable_item_type, :assessment_id, :value
 end
 
 child([@assessment.assessable]) do
