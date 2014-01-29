@@ -14,9 +14,10 @@ class Student < ActiveRecord::Base
     match = /^(.*)\s(\S*)$/.match(new_name)
     if match
       self.first_name = match[1]
-      self.last_name = match[2]
+      self.last_name = match[2] 
     else
       self.last_name = new_name
+      self.first_name = nil
     end
   end
 end
