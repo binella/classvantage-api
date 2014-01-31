@@ -4,7 +4,7 @@ module V1
     # Use inherited_resources!!!!
     
     def index
-      
+      @checklists = current_user.checklists
     end
     
     def show

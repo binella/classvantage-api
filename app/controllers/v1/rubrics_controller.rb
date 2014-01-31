@@ -4,7 +4,7 @@ module V1
     # Use inherited_resources!!!!
     
     def index
-      
+      @rubrics = current_user.rubrics
     end
     
     def show
@@ -13,7 +13,17 @@ module V1
     end
     
     def create
-      @rubric = Rubric.new permitted_params[:rubric]
+      if params[:rubric][:copy_from_id]
+        @rubric_to_copy = Rubric.find params[:rubric][:copy_from_id]
+        if @rubric_to_copy
+          @rubric = @rubric_to_copy.dup
+          @rubric.save
+          #@rubric.overall_expec
+        end
+        
+      else
+        @rubric = Rubric.new permitted_params[:rubric]
+      end
       
       if @rubric.save
         render 'show'
@@ -47,7 +57,9 @@ module V1
     
     
     def allowed_params
-      [:title, :description, :unit_id, :page_id, :custom_expectation, :custom_expectation_enabled, :row_ids, {:row_ids => []}, :overall_expectation_ids, {:overall_expectation_ids => []} ]
+      [:title, :description, :unit_id, :page_id, :custom_expectation, 
+       :custom_expectation_enabled, :row_ids, :copy_from_id, 
+       {:row_ids => []}, :overall_expectation_ids, {:overall_expectation_ids => []} ]
     end
     
   end

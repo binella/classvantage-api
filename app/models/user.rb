@@ -5,6 +5,9 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
          
   has_many :gradebooks
+  has_many :pages, :through => :gradebooks
+  has_many :rubrics, :through => :pages
+  has_many :checklists, :through => :pages
   
   validates_presence_of :province, :name, :school
   

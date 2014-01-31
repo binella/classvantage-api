@@ -24,7 +24,7 @@ child(@checklists) do
 end
 
 child(@page.assignments) do
-  attributes :id, :title, :assignment_type, :page_id, :created_at
+  attributes :id, :title, :assignment_type, :page_id, :created_at, :total
 end
 
 if @assessments
