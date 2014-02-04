@@ -4,7 +4,7 @@ module V1
     # Use inherited_resources!!!!
     
     def index
-      @checklists = current_user.checklists
+      @checklists = current_user.checklists.where("is_copy = 0 OR is_copy IS NULL")
     end
     
     def show
@@ -18,6 +18,7 @@ module V1
         if @checklist_to_copy
           @checklist = @checklist_to_copy.dup
           @checklist.page_id = params[:checklist][:page_id]
+          @checklist.is_copy = true
           @checklist.save
           @checklist.overall_expectation_ids = @checklist_to_copy.overall_expectation_ids
           @checklist_to_copy.rows.each do |row|

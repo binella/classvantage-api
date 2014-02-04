@@ -4,7 +4,7 @@ module V1
     # Use inherited_resources!!!!
     
     def index
-      @rubrics = current_user.rubrics
+      @rubrics = current_user.rubrics.where("is_copy = 0 OR is_copy IS NULL")
     end
     
     def show
@@ -18,6 +18,7 @@ module V1
         if @rubric_to_copy
           @rubric = @rubric_to_copy.dup
           @rubric.page_id = params[:rubric][:page_id]
+          @rubric.is_copy = true
           @rubric.save
           @rubric.overall_expectation_ids = @rubric_to_copy.overall_expectation_ids
           @rubric_to_copy.rows.each do |row|

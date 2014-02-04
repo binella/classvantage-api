@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140131155435) do
+ActiveRecord::Schema.define(version: 20140204192420) do
 
   create_table "assessments", force: true do |t|
     t.integer  "student_id"
@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(version: 20140131155435) do
     t.boolean  "custom_expectation_enabled"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "is_copy"
   end
 
   create_table "checklists_overall_expectations", id: false, force: true do |t|
@@ -179,6 +180,7 @@ ActiveRecord::Schema.define(version: 20140131155435) do
     t.integer  "page_id"
     t.text     "custom_expectation"
     t.boolean  "custom_expectation_enabled"
+    t.boolean  "is_copy"
   end
 
   create_table "specific_expectations", force: true do |t|
