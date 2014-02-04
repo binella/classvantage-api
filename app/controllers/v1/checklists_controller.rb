@@ -13,7 +13,20 @@ module V1
     end
     
     def create
-      @checklist = Checklist.new permitted_params[:checklist]
+      if params[:checklist][:copy_from_id]
+        @checklist_to_copy = Rubric.find params[:checklist][:copy_from_id]
+        if @checklist_to_copy
+          @checklist = @checklist_to_copy.dup
+          @checklist.page_id = params[:checklist][:page_id]
+          @checklist.save
+          @checklist.overall_expectation_ids = @checklist_to_copy.overall_expectation_ids
+          @checklist_to_copy.rows.each do |row|
+            @checklist.rows.create :criteria => row[:criteria], :level1_description => row[:level1_description], :level2_description => row[:level2_description], :level3_description => row[:level3_description], :level4_description => row[:level4_description]
+          end
+        end
+      else
+        @checklist = Checklist.new permitted_params[:checklist]
+      end
       
       if @checklist.save
         render 'show'
