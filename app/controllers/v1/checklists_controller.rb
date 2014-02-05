@@ -14,7 +14,7 @@ module V1
     
     def create
       if params[:checklist][:copy_from_id]
-        @checklist_to_copy = Rubric.find params[:checklist][:copy_from_id]
+        @checklist_to_copy = Checklist.find params[:checklist][:copy_from_id]
         if @checklist_to_copy
           @checklist = @checklist_to_copy.dup
           @checklist.page_id = params[:checklist][:page_id]
