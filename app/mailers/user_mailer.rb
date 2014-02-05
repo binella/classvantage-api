@@ -6,4 +6,10 @@ class UserMailer < ActionMailer::Base
     @user = record
     mail :to => @user.email, :subject => 'Password Reset'
   end
+  
+  def welcome_email(user) 
+    @user = user
+    mail :to => @user.email, :subject => 'Welcome to ClassVantage'
+  end
+  
 end

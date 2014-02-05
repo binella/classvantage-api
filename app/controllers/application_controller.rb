@@ -18,6 +18,7 @@ class ApplicationController < ActionController::Base #API
   def register
     @user = User.new params.permit :name, :email, :password, :province, :school
     if @user.save
+      UserMailer.welcome_email @user
       render :json => {:success => true}
     else
       render :json => {:error => @user.errors.full_messages}, :status => :not_acceptable

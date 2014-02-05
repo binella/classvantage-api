@@ -21,8 +21,8 @@ module V1
           @checklist.is_copy = true
           @checklist.save
           @checklist.overall_expectation_ids = @checklist_to_copy.overall_expectation_ids
-          @checklist_to_copy.rows.each do |row|
-            @checklist.rows.create :criteria => row[:criteria], :level1_description => row[:level1_description], :level2_description => row[:level2_description], :level3_description => row[:level3_description], :level4_description => row[:level4_description]
+          @checklist_to_copy.checklist_items.each do |checklist_item|
+            @checklist.checklist_items.create :criteria => checklist_item[:criteria]
           end
         end
       else
