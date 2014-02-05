@@ -4,7 +4,7 @@ module V1
     # Use inherited_resources!!!!
     
     def index
-      @rubrics = current_user.rubrics.where("is_copy = 0 OR is_copy IS NULL")
+      @rubrics = current_user.rubrics.where("is_copy IS NULL")
     end
     
     def show

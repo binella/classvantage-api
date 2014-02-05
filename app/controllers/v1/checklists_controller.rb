@@ -4,7 +4,7 @@ module V1
     # Use inherited_resources!!!!
     
     def index
-      @checklists = current_user.checklists.where("is_copy = 0 OR is_copy IS NULL")
+      @checklists = current_user.checklists.where("is_copy IS NULL")
     end
     
     def show
