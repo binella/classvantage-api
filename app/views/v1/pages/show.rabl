@@ -11,7 +11,7 @@ end
 
 
 child(@page.students) do
-  attributes :id, :first_name, :last_name, :full_name, :assessment_ids
+  attributes :id, :first_name, :last_name, :full_name, :assessment_ids, :updated_at
 end
 
 
@@ -36,11 +36,13 @@ if @assessments
     attributes :id, :value, :assessment_id, :assessable_item_id, :assessable_item_type
   end
 
-  child(@rubrics.map(&:rows).flatten) do
-    attributes :id, :created_at
-  end
-  
-  child(@checklists.map(&:checklist_items).flatten) do
-    attributes :id, :created_at
-  end
+
+end
+
+child(@rubrics.map(&:rows).flatten) do
+  attributes :id, :criteria, :level1_description, :level2_description, :level3_description, :level4_description, :created_at, :rubric_id
+end
+
+child(@checklists.map(&:checklist_items).flatten) do
+  attributes :id, :criteria,:created_at
 end

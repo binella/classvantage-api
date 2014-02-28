@@ -55,7 +55,8 @@ module V1
       [
         :title, :grade, :subject_id, {:student_ids => []}, :student_ids,
         :assignment_ids, {:assignment_ids => []},
-        :rubric_ids, {:rubric_ids => []}
+        :rubric_ids, {:rubric_ids => []},
+        :checklist_ids, {:checklist_ids => []}
       ]
     end
     

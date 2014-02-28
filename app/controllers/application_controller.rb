@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base #API
   # TODO: use Rack:Cors
   before_filter :cors_set_access_control_headers
-  
+  after_filter :set_no_content_status, :only => :update
   doorkeeper_for :all, :except => [:options, :register, :reset_password]
   
   respond_to :json
@@ -18,7 +18,7 @@ class ApplicationController < ActionController::Base #API
   def register
     @user = User.new params.permit :name, :email, :password, :province, :school
     if @user.save
-      UserMailer.welcome_email @user
+      UserMailer.welcome_email(@user).deliver
       render :json => {:success => true}
     else
       render :json => {:error => @user.errors.full_messages}, :status => :not_acceptable
@@ -74,6 +74,8 @@ class ApplicationController < ActionController::Base #API
       headers['Access-Control-Max-Age'] = "1728000"
   end
 
-
+  def set_no_content_status
+    response.status = 204
+  end
 
 end
