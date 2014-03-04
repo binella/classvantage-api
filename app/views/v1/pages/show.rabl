@@ -39,10 +39,15 @@ if @assessments
 
 end
 
-child(@rubrics.map(&:rows).flatten) do
-  attributes :id, :criteria, :level1_description, :level2_description, :level3_description, :level4_description, :created_at, :rubric_id
+if @rubrics
+
+  child(@rubrics.map(&:rows).flatten) do
+    attributes :id, :criteria, :level1_description, :level2_description, :level3_description, :level4_description, :created_at, :rubric_id
+  end
 end
 
-child(@checklists.map(&:checklist_items).flatten) do
-  attributes :id, :criteria,:created_at
+if @checklists
+  child(@checklists.map(&:checklist_items).flatten) do
+    attributes :id, :criteria,:created_at
+  end
 end
