@@ -22,7 +22,7 @@ module V1
           @checklist.save
           @checklist.overall_expectation_ids = @checklist_to_copy.overall_expectation_ids
           @checklist_to_copy.checklist_items.each do |checklist_item|
-            @checklist.checklist_items.create :criteria => checklist_item[:criteria]
+            @checklist.checklist_items.create :criteria => checklist_item[:criteria], :created_at => checklist_item[:created_at]
           end
         end
       else

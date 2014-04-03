@@ -22,7 +22,7 @@ module V1
           @rubric.save
           @rubric.overall_expectation_ids = @rubric_to_copy.overall_expectation_ids
           @rubric_to_copy.rows.each do |row|
-            @rubric.rows.create :criteria => row[:criteria], :level1_description => row[:level1_description], :level2_description => row[:level2_description], :level3_description => row[:level3_description], :level4_description => row[:level4_description]
+            @rubric.rows.create :criteria => row[:criteria], :level1_description => row[:level1_description], :level2_description => row[:level2_description], :level3_description => row[:level3_description], :level4_description => row[:level4_description], :created_at => row[:created_at]
           end
         end
         
