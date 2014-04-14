@@ -48,6 +48,6 @@ end
 
 if @checklists
   child(@checklists.map(&:checklist_items).flatten) do
-    attributes :id, :criteria,:created_at
+    attributes :id, :criteria, :created_at, :checklist_id
   end
 end
