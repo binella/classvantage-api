@@ -1,7 +1,7 @@
 class Rubric < ActiveRecord::Base
   belongs_to :unit
   #has_and_belongs_to_many :pages # WERE NOT DOING THIS RIGHT NOW (BUT JOIN TABLE EXISTS)
-  belongs_to :page
+  belongs_to :page, :touch => true
   has_many :rows, :dependent => :destroy
   has_many :assessments, :as => :assessable, :dependent => :destroy
   has_and_belongs_to_many :overall_expectations

@@ -1,6 +1,6 @@
 class Checklist < ActiveRecord::Base
   belongs_to :unit
-  belongs_to :page
+  belongs_to :page, :touch => true
   has_many :checklist_items, :dependent => :destroy
   has_many :assessments, :as => :assessable, :dependent => :destroy
   has_and_belongs_to_many :overall_expectations

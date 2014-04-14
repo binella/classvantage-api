@@ -1,6 +1,6 @@
 class Assessment < ActiveRecord::Base
   belongs_to :student, :touch => true
-  belongs_to :assessable, :polymorphic => true
+  belongs_to :assessable, :polymorphic => true, :touch => true
   has_many :marks, :dependent => :destroy
   
   
