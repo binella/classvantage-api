@@ -17,7 +17,7 @@ module V1
       if @row.update_attributes(permitted_params[:row])
         render :nothing => true
       else
-        render :json => {:error => 'Error updating rubric row'}
+        render :json => {:error => 'Error updating rubric row'}, :status => :not_acceptable
       end
       
     end

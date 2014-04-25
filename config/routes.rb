@@ -14,11 +14,12 @@ Classvantage::Application.routes.draw do
     resources :rubrics
     resources :assignments
     resources :checklists
-    
-    resources :units, :only => [:index, :show, :update]
-    
+
+    # TODO: move these to the admin namespace, :except => {:units => :index/:show?}
+    resources :units
     resources :overall_expectations, :only => [:create, :update]
     resources :specific_expectations, :only => [:create, :update]
+
     resources :rows, :only => [:create, :update]
     resources :checklist_items, :only => [:create, :update]
     
@@ -31,6 +32,11 @@ Classvantage::Application.routes.draw do
     resources :pages
     
     resources :students
+    
+    resources :curriculums, :only => [:index, :show]
+    resources :subjects
+    resources :strands
+
     
     #resources :gradebooks do
       #resources :pages
