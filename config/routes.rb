@@ -33,7 +33,7 @@ Classvantage::Application.routes.draw do
     
     resources :students
     
-    resources :curriculums, :only => [:index, :show]
+    resources :curriculums, :only => [:index, :show, :update]
     resources :subjects
     resources :strands
 
