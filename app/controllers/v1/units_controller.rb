@@ -2,8 +2,9 @@ module V1
   class UnitsController < ApplicationController
     
     def index
-      @units = Unit.with_subject.scoped #filter for curriculum
-      fresh_when Unit.maximum(:updated_at)
+      curriculum = Curriculum.find 1
+      @units = curriculum.units.with_subject.scoped #filter for curriculum
+      fresh_when curriculum.units.maximum(:updated_at)
         
     end
     
