@@ -12,6 +12,6 @@ class Assessment < ActiveRecord::Base
           rubric_ids, assignment_ids, checklist_ids)
   }
   scope :for_students, lambda { |student_ids| where(:student_id => student_ids) }
-  scope :with_marks, includes(:marks)
+  scope :with_marks, -> { includes(:marks) }
   
 end

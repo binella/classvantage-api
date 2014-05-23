@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140502185520) do
+ActiveRecord::Schema.define(version: 20140522063523) do
 
   create_table "assessments", force: true do |t|
     t.integer  "student_id"
@@ -161,6 +161,13 @@ ActiveRecord::Schema.define(version: 20140502185520) do
   add_index "pages_students", ["page_id"], name: "index_pages_students_on_page_id", using: :btree
   add_index "pages_students", ["student_id"], name: "index_pages_students_on_student_id", using: :btree
 
+  create_table "parent_emails", force: true do |t|
+    t.string   "email_address"
+    t.integer  "student_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "rows", force: true do |t|
     t.text     "criteria"
     t.text     "level1_description"
@@ -206,6 +213,7 @@ ActiveRecord::Schema.define(version: 20140502185520) do
     t.string   "last_name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "creator_id"
   end
 
   create_table "subjects", force: true do |t|

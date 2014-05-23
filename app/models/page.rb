@@ -8,8 +8,8 @@ class Page < ActiveRecord::Base
   has_many :checklists, :dependent => :destroy
   
   
-  scope :with_students_and_assessments, includes(:students => [{:assessments => [:marks]}])
-  scope :with_rubrics, includes(:rubrics)
+  scope :with_students_and_assessments, -> {includes(:students => [{:assessments => [:marks]}])}
+  scope :with_rubrics, -> {includes(:rubrics)}
   
   def delete_assessments(student)
     # BUG in 4.0.1
