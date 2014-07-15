@@ -4,7 +4,7 @@ module V1
     # TODO: use load_and_authorize_resource
     
     def index
-      @pages = current_user.default_gradebook.pages.order("created_at DESC")
+      @pages = current_user.default_gradebook.pages.includes(:agenda_items).order("created_at DESC")
     end
     
     def show
@@ -56,7 +56,8 @@ module V1
         :title, :grade, :subject_id, {:student_ids => []}, :student_ids,
         :assignment_ids, {:assignment_ids => []},
         :rubric_ids, {:rubric_ids => []},
-        :checklist_ids, {:checklist_ids => []}
+        :checklist_ids, {:checklist_ids => []},
+        :agenda_item_ids, {:agenda_item_ids => []}
       ]
     end
     

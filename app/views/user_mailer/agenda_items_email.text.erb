@@ -1,0 +1,14 @@
+<%= Date.today.strftime("%A %B %e, %Y") %>
+<%= @student.full_name %> has ><%= @agenda_items.count %> agenda item<%= @agenda_items.count > 1 ? 's' : '' %> for the next <%= @span %>.
+
+----------------------------
+
+<%= @note %>
+
+----------------------------
+
+<% @agenda_items.each do |agenda_item| %>
+ - <%= agenda_item.title %>, 		Due: <%= agenda_item.due_date.strftime %>
+	 <%= agenda_item.description %>
+
+<% end %>

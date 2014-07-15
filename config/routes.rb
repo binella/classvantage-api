@@ -33,11 +33,13 @@ Classvantage::Application.routes.draw do
     
     resources :students
     
+    resources :agenda_items
+    
     resources :curriculums, :only => [:index, :show, :update]
     resources :subjects
     resources :strands
 
-    
+    post 'send_agendas', :controller => 'agenda_items', :action => 'send_mail'
     #resources :gradebooks do
       #resources :pages
     #end

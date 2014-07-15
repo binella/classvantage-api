@@ -1,0 +1,19 @@
+<body style="margin:0px;background-color:#efe4c2;">
+<div style="height: 70px; background: #1e3133; color: white; display: block;"><img style="margin-top: 14px; margin-left: 10%;" src="http://www.classvantage.com/images/logo.png" alt="ClassVantage" /></div>
+<div style="margin-left: 10%; margin-top: 30px; color: #93876c;"><%= Date.today.strftime("%A %B %e, %Y") %></div>
+<div style="margin-left: 10%; font-size: 24px; font-weight: 500; color: #1e3133; margin-top: 20px;margin-right:10%;"><%= @student.full_name %> has <span style="color: #ff4626;"><%= @agenda_items.count %></span> agenda item<%= @agenda_items.count > 1 ? 's' : '' %> for the next <%= @span %></div>
+<p>&nbsp;</p>
+<hr style="margin-left: 10%; margin-right: 10%;" />
+<p>&nbsp;</p>
+<div style="margin-left: 10%; margin-right: 10%; color: #93876c;"><%= @note %></div>
+<p>&nbsp;</p>
+<ul style="margin-left: 10%; margin-right: 10%; list-style: none;">
+<% @agenda_items.each do |agenda_item| %>
+<li style="background: white; border-left: 5px solid <%= agenda_item.hex_code %>; min-height: 42px; line-height: 38px; margin-bottom: 1px;"><span style="color: #1e3133; margin-left: 10px; font-weight: 500;"><%= agenda_item.title %></span> <span style="float: right; color: <%= agenda_item.hex_code %>; margin-right: 10px;"><%= agenda_item.due_date.strftime %></span> <span style="float: right; color: #1e3133;">Due:</span>
+<div style="font-size: 14px; margin-left: 10px; margin-right: 10px;"><%= agenda_item.description %></div>
+</li>
+<% end %>
+</ul>
+<p>&nbsp;</p>
+<div style="text-align: center; width: 100%; font-size: 12px; color: #93876c;">Don't want to receive these emails anymore? <a style="text-decoration: underline; color: #93876c;" href="http://api.classvantage.com/v1/unsubscribe?student_id=<%= @student.id %>">Unsubscribe</a></div>
+</body>

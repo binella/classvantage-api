@@ -6,7 +6,7 @@ class Page < ActiveRecord::Base
   has_many :rubrics, :dependent => :destroy
   has_many :assignments, :dependent => :destroy
   has_many :checklists, :dependent => :destroy
-  
+  has_many :agenda_items, :dependent => :destroy
   
   scope :with_students_and_assessments, -> {includes(:students => [{:assessments => [:marks]}])}
   scope :with_rubrics, -> {includes(:rubrics)}

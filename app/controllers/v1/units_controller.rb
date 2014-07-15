@@ -2,10 +2,18 @@ module V1
   class UnitsController < ApplicationController
     
     def index
-      curriculum = Curriculum.find 1
-      @units = curriculum.units.with_subject.scoped #filter for curriculum
-      fresh_when curriculum.units.maximum(:updated_at)
-        
+      curriculum = Curriculum.find_by_title current_user.province
+      curriculum = Curriculum.find(1) unless curriculum
+      parent_c = curriculum.parent_curriculum
+      @units = curriculum.units.with_subject.scoped
+      @units.concat parent_c.units.with_subject.scoped if parent_c
+      
+      if parent_c
+        fresh_when [curriculum.units.maximum(:updated_at), parent_c.units.maximum(:updated_at)].max
+      else
+        fresh_when curriculum.units.maximum(:updated_at)
+      end
+      
     end
     
     def show
