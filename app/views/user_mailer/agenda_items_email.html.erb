@@ -1,4 +1,5 @@
 <body style="margin:0px;background-color:#efe4c2;">
+<div style="height: 40px; line-height: 40px; background: #e0cf5b; padding: 0 10%; color: #93876C; font-size: 14px;"><span style="color: #1e3133;">Note:</span> Parents will only receive agenda items from their child's gradebook pages</div>
 <div style="height: 70px; background: #1e3133; color: white; display: block;"><img style="margin-top: 14px; margin-left: 10%;" src="http://www.classvantage.com/images/logo.png" alt="ClassVantage" /></div>
 <div style="margin-left: 10%; margin-top: 30px; color: #93876c;"><%= Date.today.strftime("%A %B %e, %Y") %></div>
 <div style="margin-left: 10%; font-size: 24px; font-weight: 500; color: #1e3133; margin-top: 20px;margin-right:10%;"><%= @student.full_name %> has <span style="color: #ff4626;"><%= @agenda_items.count %></span> agenda item<%= @agenda_items.count > 1 ? 's' : '' %> for the next <%= @span %></div>
